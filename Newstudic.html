@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, user-scalable=yes, initial-scale=1.0, maximum-scale=3.0">
+	<link rel="stylesheet" href="css/style.css">
+	<script src="js/jquery-1.11.3.min.js"></script>
+	<script src="js/app.js"></script>
+</head>
+
+<body>
+
+
+<!-- 단어 뜻 설명 Pop Up Page -->
+<div id="mean" class="modalDialog">	</div>
+
+<!-- Panel Page -->
+<div id="set">
+	<header id='header'>
+		<h1> <font face='Georgia' size='6'> Newstudic </font> </h1> 
+		<a id="displayWord" onclick='dic()' class="left-menu">
+			<img width='50' height='50' src='img/icon/dic.jpg'>
+		</a>
+		<a class="right-menu" onclick='moveHome()'>
+			<img width='65' height='65' src='img/icon/home.jpg'>
+		</a>
+	</header>
+
+	<div id='content'>
+		<table border='0' width='100%'>
+			<tr>
+			 <td>
+				<img width='70%' height='300' src='img/main.jpg'>
+			 </td>
+			</tr>
+			<tr>
+			 <td align='center'>
+				* 영어 뉴스를 읽으시다 모르는 단어가 나오면 눌러주세요. <p>
+				* 단어의 뜻과 발음을 확인할 수 있고 단어장에 저장도 할 수 있습니다.
+			 </td>
+			</tr>
+		</table>
+	</div>
+
+</div>
+
+
+
+
+<!-- Main Page -->
+<div id="mainpage" class="page-wrap">
+	
+	<header id='header' class='main-header'>
+		<h1> <font face='Georgia' size='6'> Newstudic </font> </h1>  
+		<a class="left-menu" onclick="movePanel()">	☰ </a>
+	</header>
+	
+	
+	<div class='card' id='bbc_button' onclick='moveBBC()'>
+		<table>
+			<tr>
+				<td>	
+					<img width='110' height='100' src='img/news_logo/bbc_news.png'> 
+				</td>
+				<td align='left'>
+					<font face='Oswald' size='5'> BBC </font> <p>
+					<font size='3' face='Malgun Gothic'> 영국의 공영 방송 </font> 
+				</td>
+			</tr>
+		</table>
+	</div>
+		
+	<div class='card' id='abc_button' onclick='moveABC()'>
+		<table>
+			<tr>
+				<td>
+					<img width='110' height='100' src='img/news_logo/abc_news.png'>
+				</td>
+				<td align='left'>
+					<font face='Oswald' size='5'> ABC </font> <p>
+					<font size='3' face='Malgun Gothic'> 미국 뉴스 전문 방송 </font> 
+				</td>
+			</tr>
+		</table>
+	</div>
+		
+	
+	<div class='card' id='voa_button' onclick='moveVOA()'>
+		<table>
+			<tr>
+				<td>
+					<img width='110' height='100' src='img/news_logo/voa_news.png'> 
+				</td>
+				<td align='left'>
+					<font face='Oswald' size='5'> VOA </font> <p>
+					<font size='3' face='Malgun Gothic'> 미국 국무부의 해외 방송 </font> 
+				</td>
+			<tr>
+		</table>
+	</div>
+	
+		
+	<div class='card' id='krherald_button' onclick='moveKRHerald()'>
+		<table>
+			<tr>
+				<td>
+					<img width='110' height='100' src='img/news_logo/korea_herald.png'> 
+				</td>
+				<td align='left'>
+					<font face='Oswald' size='5'> The Korea Herald </font> <p>
+					<font size='3' face='Malgun Gothic'> 서울에서 발행되는 영자 일간신문 </font> 
+				</td>
+			<tr>
+		</table>
+	</div>
+		
+	<div class='card' id='krtimes_button' onclick='moveKRTimes()'>
+		<table>
+			<tr>
+				<td>
+					<img width='110' height='100' src='img/news_logo/korea_times.png'> 
+				</td>
+				<td align='left'>
+					<font face='Oswald' size='5'> The Korea Times </font> <p>
+					<font size='3' face='Malgun Gothic'> 서울에서 발행되는 영자 일간신문 </font> 
+				</td>
+			<tr>
+		</table>
+	</div>
+		
+	<div class='card' id='latimes_button' onclick='moveLATimes()'>
+		<table>
+			<tr>
+				<td>
+					<img width='110' height='100' src='img/news_logo/la_times.png'> 
+				</td>
+				<td align='left'>
+					<font face='Oswald' size='5'> Los Angeles Times </font>  <p>
+					<font size='3' face='Malgun Gothic'> 미국 로스앤젤레스에서 발행되는 조간신문 </font> 
+				</td>
+			</tr>
+		</table>
+	</div>
+
+		
+	<div class='card' id='naturenews_button' onclick='moveNatureNews()'>
+		<table>
+			<tr>
+				<td>
+					<img width='110' height='100' src='img/news_logo/nature_news.png'> 
+				</td>
+				<td align='left'>
+					<font face='Oswald' size='5'> Nature  </font> <p>
+					<font size='3' face='Malgun Gothic'> 영국의 과학 잡지 </font> 
+				</td>
+			</tr>
+		</table>
+	</div>
+		
+	<div class='card' id='nprnews_button' onclick='moveNPRNews()'>
+		<table>
+			<tr>
+				<td>
+					<img width='110' height='100' src='img/news_logo/npr_news.png'> 
+				</td>
+				<td align='left'>
+					<font face='Oswald' size='5'> NPR News </font> <P>
+					<font size='3' face='Malgun Gothic'> 미국의 비영리 라디오 방송  </font> 
+				</td>
+			</tr>
+		</table>
+	</div>
+</div> 
+<!-- 여기까지 Main Page -->
+
+
+
+
+
+<!-- BBC Page -->
+<div id='pagebbc'>
+
+	<div id='header'>
+		<h1> <font face='Georgia' size='5'> BBC </font> </h1> 
+		<a id="displayWord" onclick='dic()' class="left-menu">
+			<img width='50' height='50' src='img/icon/dic.jpg'>
+		</a>
+		<a class="right-menu" onclick='moveHome()'>
+			<img width='65' height='65' src='img/icon/home.jpg'>
+		</a>
+	</div>
+	
+	<input type="hidden" id="key">
+
+	<!-- BBC News 불러오는 영역 -->
+	<div id="bbc_title">
+	</div>
+
+</div>
+<!-- 여기까지 BBC Page -->
+
+
+
+
+<!-- ABC Page -->
+<div id='pageabc'>
+
+	<div id='header'>
+		<h1> <font face='Georgia' size='5'> ABC </font> </h1> 
+		<a id="displayWord" onclick='dic()' class="left-menu">
+			<img width='50' height='50' src='img/icon/dic.jpg'>
+		</a>
+		<a class="right-menu" onclick='moveHome()'>
+			<img width='65' height='65' src='img/icon/home.jpg'>
+		</a>
+	</div>
+	
+	<input type="hidden" id="key">
+
+	<!-- ABC News 불러오는 영역 -->
+	<div id="abc_title">
+	</div>
+
+</div>
+<!-- 여기까지 ABC Page -->
+
+
+
+
+
+<!-- VOA Page -->
+<div id='pagevoa'>
+
+	<div id='header'>
+		<h1> <font face='Georgia' size='5'> VOA </font> </h1> 
+		<a id="displayWord" onclick='dic()' class="left-menu">
+			<img width='50' height='50' src='img/icon/dic.jpg'>
+		</a>
+		<a class="right-menu" onclick='moveHome()'>
+			<img width='65' height='65' src='img/icon/home.jpg'>
+		</a>
+	</div>
+	
+	<input type="hidden" id="key">
+
+	<!-- VOA News 불러오는 영역 -->
+	<div id="voa_title">
+	</div>
+
+</div>
+<!-- 여기까지 VOA Page -->
+
+
+
+
+<!-- Korea Herald Page -->
+<div id='pagekrherald'>
+
+	<div id='header'>
+		<h1> <font face='Georgia' size='4'> The Korea Herald </font> </h1> 
+		<a id="displayWord" onclick='dic()' class="left-menu">
+			<img width='50' height='50' src='img/icon/dic.jpg'>
+		</a>
+		<a class="right-menu" onclick='moveHome()'>
+			<img width='65' height='65' src='img/icon/home.jpg'>
+		</a>
+	</div>
+	
+	<input type="hidden" id="key">
+
+	<!-- VOA News 불러오는 영역 -->
+	<div id="krherald_title">
+	</div>
+
+</div>
+<!-- 여기까지 Korea Herald Page -->
+
+<!-- Korea Times Page -->
+<div id='pagekrtimes'>
+
+	<div id='header'>
+		<h1> <font face='Georgia' size='4'> The Korea Times </font> </h1> 
+		<a id="displayWord" onclick='dic()' class="left-menu">
+			<img width='50' height='50' src='img/icon/dic.jpg'>
+		</a>
+		<a class="right-menu" onclick='moveHome()'>
+			<img width='65' height='65' src='img/icon/home.jpg'>
+		</a>
+	</div>
+	
+	<input type="hidden" id="key">
+
+	<!-- Korea Times News 불러오는 영역 -->
+	<div id="krtimes_title">
+	</div>
+
+</div>
+<!-- 여기까지 Korea Times Page -->
+
+
+
+<!-- Los Angeles Times Page -->
+<div id='pagelatimes'>
+
+	<div id='header'>
+		<h1> <font face='Georgia' size='4'> Los Angeles Times </font> </h1> 
+		<a id="displayWord" onclick='dic()' class="left-menu">
+			<img width='50' height='50' src='img/icon/dic.jpg'>
+		</a>
+		<a class="right-menu" onclick='moveHome()'>
+			<img width='65' height='65' src='img/icon/home.jpg'>
+		</a>
+	</div>
+	
+	<input type="hidden" id="key">
+
+	<!-- Los Angeles Times 불러오는 영역 -->
+	<div id="latimes_title">
+	</div>
+
+</div>
+<!-- 여기까지 Los Angeles Times Page -->
+
+
+
+
+<!-- Nature News Page -->
+<div id='pagenaturenews'>
+
+	<div id='header'>
+		<h1> <font face='Georgia' size='5'> Nature </font> </h1> 
+		<a id="displayWord" onclick='dic()' class="left-menu">
+			<img width='50' height='50' src='img/icon/dic.jpg'>
+		</a>
+		<a class="right-menu" onclick='moveHome()'>
+			<img width='65' height='65' src='img/icon/home.jpg'>
+		</a>
+	</div>
+	
+	<input type="hidden" id="key">
+
+	<!-- Nature News 불러오는 영역 -->
+	<div id="naturenews_title">
+	</div>
+
+</div>
+<!-- 여기까지 Nature News Page -->
+
+
+
+
+<!-- NPR News Page -->
+<div id='pagenprnews'>
+
+	<div id='header'>
+		<h1> <font face='Georgia' size='5'> NPR News </font> </h1> 
+		<a id="displayWord" onclick='dic()' class="left-menu">
+			<img width='50' height='50' src='img/icon/dic.jpg'>
+		</a>
+		<a class="right-menu" onclick='moveHome()'>
+			<img width='65' height='65' src='img/icon/home.jpg'>
+		</a>
+	</div>
+	
+	<input type="hidden" id="key">
+
+	<!-- NPR News 불러오는 영역 -->
+	<div id="nprnews_title">
+	</div>
+
+</div>
+<!-- 여기까지 NPR News Page -->
+
+
+
+<!-- 단어장 Page -->
+<div id='pagedic'>
+
+	<div id="header">
+		<h1> <font size='5'> 단어장 </font> </h1>
+		<a class="right-menu" onclick='moveHome()'>
+			<img width='65' height='65' src='img/icon/home.jpg'>
+		</a>
+	</div>
+	
+	<!-- 단어 목록 -->
+	<div id="noteList" >
+
+	</div>
+
+</div>
+<!-- 여기까지 단어장 Page -->
+
+
+</body>
+
+</html>
